@@ -16,13 +16,13 @@ func stubbornBoss(userChoice string) string {
 	return "rock"
 }
 
-func ghostBoss(userChoice string) string {
+func dullBoss(userChoice string) string {
 	choices := []string{"rock", "paper"}
 	return choices[rand.IntN(len(choices))]
 }
 
-func demonBoss(userChoice string) string {
-	//1 in 5 chance
+func trickyBoss(userChoice string) string {
+	//1 in 5 chance to tie with user
 	if rand.IntN(5) == 0 {
 		return userChoice
 	}
@@ -34,8 +34,8 @@ func demonBoss(userChoice string) string {
 func getRandomBoss() Boss {
 	bosses := []Boss{
 		{"Stubborn Boss", stubbornBoss},
-		{"Ghost Boss", ghostBoss},
-		{"Demon Boss", demonBoss},
+		{"Dull Boss", dullBoss},
+		{"Tricky Boss", trickyBoss},
 	}
 	return bosses[rand.IntN(len(bosses))]
 }
